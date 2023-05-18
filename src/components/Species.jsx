@@ -15,10 +15,8 @@ export const Species = () => {
             })
     }, [])
 
-    const renderSpecies = (specie, i) => <div key={i}>{specie.name}</div>
-
     return (<div>
-        {species.map(renderSpecies)}
+        {species.map((specie, i) => <div key={i}>{specie.name}</div>)}
     </div>)
 }
 
