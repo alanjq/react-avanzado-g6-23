@@ -28,3 +28,6 @@ Formulario de contacto
 - Nombre
 - Correo
 - Teléfono
+
+Pasarela de pago
+[Pendiente por seleccionar]
