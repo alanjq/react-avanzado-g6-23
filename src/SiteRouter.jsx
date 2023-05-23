@@ -5,11 +5,12 @@ import CartPage from './pages/CartPage'
 import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
 import CheckoutPage from './pages/CheckoutPage'
+import SiteLayout from "./SiteLayout";
 
 export const SiteRouter = () => (
     <BrowserRouter>
         <Routes>
-            <Route path="/">
+            <Route path="/" element={<SiteLayout />}>
                 <Route index element={<LandingPage />} />
                 <Route path="shopping-cart" element={<CartPage />} />
                 {/* TODO: Definir variable para producto */}

@@ -1,8 +1,13 @@
 import React from "react";
+import {Container} from '@mui/material'
 
 export const Header = () => {
     
-    return (<div>Shopping</div>)
+    return (
+        <Container fixed>
+            Shop
+        </Container>
+    )
 }
 
 export default Header
