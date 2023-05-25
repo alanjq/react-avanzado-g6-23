@@ -13,22 +13,23 @@ Puntos necesarios
   - Formulario de contacto
 
 Componentes del sitio
-- Header
-- Footer
+- Header [Alejandro]
+- Footer [Mario]
 
-Página Landing
+Página Landing [Andrea]
 - Listado de productos
 
 Producto
-- Agregar producto al carrito
-- Eliminar del carrito
+- Ver detalles de producto
+- Agregar producto al carrito [Componente de César]
+- Eliminar del carrito [Componente de César]
 
-Carrito de compras
+Carrito de compras [César]
 - Agregar más productos
 - Eliminar producto
 - Agregar un único artículo (no manejar cantidades)
 
-Formulario de contacto
+Formulario de contacto [Rebeca]
 - Nombre
 - Correo
 - Teléfono
