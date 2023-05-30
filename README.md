@@ -7,10 +7,10 @@
 Puntos necesarios
 - Ruteo con react-router-dom
 - Páginas
-  - Landing
-  - Carrito de compra
+  - Landing [Andrea]
+  - Carrito de compra [César]
   - Producto
-  - Formulario de contacto
+  - Formulario de contacto [Rebeca]
 
 Componentes del sitio
 - Header [Alejandro]
