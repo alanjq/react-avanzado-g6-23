@@ -1,14 +1,14 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import { ShoppingCartProvider } from "../Context";
 
 
 export const CartPage = () => {
-        const contextCart = useContext(ShoppingCartProvider);
+    const contextCart = useContext(ShoppingCartProvider);
 
-        console.log(contextCart)
+    console.log(contextCart)
     return (
 
-    <div>CartPage</div>
+        <div>CartPage</div>
     )
 }
 
