@@ -1,8 +1,15 @@
 import React from "react";
+import useProducts from "../hooks/useProducts";
+import ProductList from "../components/ProductList";
+import { LinearProgress } from "@mui/joy";
 
 export const CheckoutPage = () => {
-    
-    return (<div>CheckoutPage</div>)
+    const { products, isLoading}  = useProducts()
+
+    return (<div>CheckoutPage
+        <hr />
+        {isLoading ? <LinearProgress /> : <ProductList products={products} />}
+    </div>)
 }
 
 export default CheckoutPage
