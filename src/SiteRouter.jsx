@@ -1,4 +1,5 @@
-import {useState} from "react";
+/* eslint-disable no-undef */
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from './pages/LandingPage'
 import CartPage from './pages/CartPage'
@@ -6,24 +7,14 @@ import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
 import CheckoutPage from './pages/CheckoutPage'
 import SiteLayout from "./SiteLayout";
-import { CartContext } from "./context/CartContext";
+import { ShoppingCartProvider } from "./Context";
 
 
 export const SiteRouter = () => {
-    const [listaArticulos, setListaArticulos] = useState([])
 
-
-    // items:[
-    //     {
-    //         articleName: "magazine",
-    //         price: 15,
-    //         stock: 1,
-    //         picture: 'none',
-    //     }
-    // ]
 
     return(   
-        <CartContext.Provider value={{listaArticulos, setListaArticulos}}>
+        <ShoppingCartProvider >
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<SiteLayout />}>
@@ -36,7 +27,7 @@ export const SiteRouter = () => {
                     </Route>
                 </Routes>
             </BrowserRouter>
-        </CartContext.Provider>
+        </ShoppingCartProvider>
     ) 
 }
 

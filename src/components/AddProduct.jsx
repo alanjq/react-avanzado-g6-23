@@ -2,7 +2,7 @@ import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import Add from '@mui/icons-material/Add';
 import { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../Context';
 
 // eslint-disable-next-line react/prop-types
 const AddProduct = ({item}) => {
