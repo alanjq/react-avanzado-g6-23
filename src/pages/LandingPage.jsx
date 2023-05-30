@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Welcome from "./Landing/Welcome";
 import ProductList from "../components/ProductList";
+import LinearProgress from '@mui/joy/LinearProgress';
 
 
 export const LandingPage = () => {
@@ -24,15 +25,17 @@ export const LandingPage = () => {
             .catch((error) => {
                 console.log('ERROR DE API', error.message);
             })
-            .finally(()=>{
-                setIsloading(false)
+            .finally(() => {
+                // Desactivar el loader
+                setTimeout(() => {
+                    setIsloading(false)
+                }, 1000);
             })
     }, [])
 
     useEffect(() => {
         const start = currentPage + 1 * 20
         const end = start + 20
-        console.log('Página. Inicio. Fin', currentPage, start, end);
         setProducts(allProducts.slice(start, end))
     }, [currentPage])
 
@@ -44,7 +47,7 @@ export const LandingPage = () => {
         <Welcome />
         <input type="number" defaultValue={0} onChange={handleChange} />
         <hr />
-        {isLoading ? 'Cargando...' : <ProductList products={products} />}
+        {isLoading ? <LinearProgress /> : <ProductList products={products} />}
     </div>)
 }
 
