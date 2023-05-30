@@ -1,14 +1,14 @@
 import React from "react";
-import useProducts from "../hooks/useProducts";
-import ProductList from "../components/ProductList";
-import { LinearProgress } from "@mui/joy";
+import useApi from "../hooks/useApi";
 
 export const CheckoutPage = () => {
-    const { products, isLoading}  = useProducts()
+    const { data}  = useApi('comments')
+    console.log(
+        'data', data
+    );
 
     return (<div>CheckoutPage
         <hr />
-        {isLoading ? <LinearProgress /> : <ProductList products={products} />}
     </div>)
 }
 
