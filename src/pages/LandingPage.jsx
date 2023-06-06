@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Welcome from "./Landing/Welcome";
-import ProductList from "../components/ProductList";
 import LinearProgress from '@mui/joy/LinearProgress';
+import { Grid } from "@mui/material";
+import React from "react";
+import ProductList from "../components/ProductList";
 import useProducts from "../hooks/useProducts";
+import Welcome from "./Landing/Welcome";
 
 
 export const LandingPage = () => {
