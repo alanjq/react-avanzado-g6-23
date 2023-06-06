@@ -9,7 +9,7 @@ import Welcome from "./Landing/Welcome";
 export const LandingPage = () => {
     const { products, isLoading, setPage } = useProducts()
 
-    return (<div>
+    return (<div className='bg-red-100'>
         <Welcome />
         <input type="number" defaultValue={0} onChange={setPage} />
         <hr />

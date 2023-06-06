@@ -9,7 +9,7 @@ const useApi = (endpoint) => {
     // Realizar la llamada a la API cuando el componente se cree
     useEffect(() => {
         setIsloading(true)
-        fetch(`https://jsonplaceholder.typicode.com/${endpoint}`)
+        fetch(`https://api.escuelajs.co/api/v1/${endpoint}`)
             // Si la promesa se resuelve
             .then((response) => response.json())
             .then((datos) => {
