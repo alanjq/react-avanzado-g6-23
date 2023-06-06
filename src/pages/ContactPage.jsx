@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
-import { useForm } from "react-hook-form";
-//  "react-hook-form"; // se instalo react-hook-form " npm install react-hook-form"
+import {useForm} from "react-hook-form"; // se instalo react-hook-form " npm install react-hook-form"
 
 const ContactPage = () => {
 
