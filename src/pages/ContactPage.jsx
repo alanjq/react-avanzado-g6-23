@@ -1,12 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
-import NavBar from "../components/Navbar";
-import useform from "react-hook-form"; // se instalo react-hook-form " npm install react-hook-form"
-import { Label } from "@mui/icons-material";
-import { Input } from "@mui/material";
+import {useForm} from "react-hook-form"; // se instalo react-hook-form " npm install react-hook-form"
 
 const ContactPage = () => {
 
-    const { register, formState: {errors}, handlesubmit } = useform();
+    const { register, formState: {errors}, handleSubmit } = useForm();
     //ese encarga de guardar los datos 
     const onSubmit =(data) => {
         console.log(data);
@@ -14,7 +12,7 @@ const ContactPage = () => {
     
     return<div>
         <h2> contactPage </h2>
-        <form onSubmit={handlesubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div>
                 <label> Name </label>
                 <input type="text" {...register("name", {
