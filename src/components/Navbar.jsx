@@ -14,6 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
 const NAV_LINKS = [
     {
@@ -23,7 +24,7 @@ const NAV_LINKS = [
     {
         label: 'Carrito',
         url: '/shopping-cart'
-    },{
+    }, {
         label: 'Producto',
         url: '/product'
     },
@@ -114,7 +115,9 @@ function NavBar() {
                         >
                             {NAV_LINKS.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page.label}</Typography>
+                                    <Link to={page.url}>
+                                        <Typography textAlign="center">{page.label}</Typography>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -145,7 +148,9 @@ function NavBar() {
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page.label}
+                                <Link to={page.url} >
+                                    {page.label}
+                                </Link>
                             </Button>
                         ))}
                     </Box>

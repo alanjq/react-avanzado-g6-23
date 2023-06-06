@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import API from './getFromAPI'
 
 const useProducts = () => {
+    const [allProducts, setAllProducts] = useState([])
     const [isLoading, setIsloading] = useState(false)
     const [products, setProducts] = useState([])
+    const [currentPage, setCurrentPage] = useState(0)
 
     // Realizar la llamada a la API cuando el componente se cree
     useEffect(() => {
@@ -12,8 +14,10 @@ const useProducts = () => {
             // Si la promesa se resuelve
             .then((response) => response.json())
             .then((datos) => {
+                setAllProducts(datos)
+                setProducts(datos.slice(0, 20))
+                setCurrentPage(0)
                 console.log('datos', datos);
-                setProducts(datos)
             })
             // Si la promesa falla
             .catch((error) => {
@@ -27,10 +31,18 @@ const useProducts = () => {
             })
     }, [])
 
+    useEffect(() => {
+        const start = currentPage + 1 * 20
+        const end = start + 20
+        setProducts(allProducts.slice(start, end))
+    }, [currentPage])
+
+    const setPage = ({ target }) => setCurrentPage(target.value)
 
     return {
         products,
         isLoading,
+        setPage,
     }
 }
 
