@@ -3,6 +3,9 @@
 ## Interfaz de usuario
 [Material UI](https://mui.com/material-ui/react-button/)
 
+## API productos
+https://fakeapi.platzi.com
+
 
 Puntos necesarios
 - Ruteo con react-router-dom
