@@ -1,10 +1,12 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-//  "react-hook-form"; // se instalo react-hook-form " npm install react-hook-form"
+import NavBar from "../components/Navbar";
+import useform from "react-hook-form"; // se instalo react-hook-form " npm install react-hook-form"
+import { Label } from "@mui/icons-material";
+import { Input } from "@mui/material";
 
 const ContactPage = () => {
 
-    const { register, formState: {errors}, handleSubmit } = useForm();
+    const { register, formState: {errors}, handlesubmit } = useform();
     //ese encarga de guardar los datos 
     const onSubmit =(data) => {
         console.log(data);
@@ -12,7 +14,7 @@ const ContactPage = () => {
     
     return<div>
         <h2> contactPage </h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handlesubmit(onSubmit)}>
             <div>
                 <label> Name </label>
                 <input type="text" {...register("name", {
