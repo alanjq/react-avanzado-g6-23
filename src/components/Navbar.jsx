@@ -15,11 +15,28 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+const NAV_LINKS = [
+    {
+        label: 'Inicio',
+        url: '/'
+    },
+    {
+        label: 'Carrito',
+        url: '/shopping-cart'
+    },{
+        label: 'Producto',
+        url: '/product'
+    },
+    {
+        label: 'Contacto',
+        url: '/contact'
+    },
+    {
+        label: 'Pagar',
+        url: '/checkout'
+    }
+]
 
-import { ShoppingCartContext } from "../Context";
-
-const pages = ['Landing', 'Shopping Cart', 'Product', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
@@ -95,9 +112,9 @@ function NavBar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
+                            {NAV_LINKS.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Typography textAlign="center">{page.label}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -122,13 +139,13 @@ function NavBar() {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
+                        {NAV_LINKS.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {page.label}
                             </Button>
                         ))}
                     </Box>
