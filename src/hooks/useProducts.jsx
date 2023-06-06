@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import API from './getFromAPI'
 
 const useProducts = () => {
     const [allProducts, setAllProducts] = useState([])
@@ -9,13 +10,14 @@ const useProducts = () => {
     // Realizar la llamada a la API cuando el componente se cree
     useEffect(() => {
         setIsloading(true)
-        fetch('https://jsonplaceholder.typicode.com/photos')
+        API.get('products')
             // Si la promesa se resuelve
             .then((response) => response.json())
             .then((datos) => {
                 setAllProducts(datos)
                 setProducts(datos.slice(0, 20))
                 setCurrentPage(0)
+                console.log('datos', datos);
             })
             // Si la promesa falla
             .catch((error) => {
@@ -34,7 +36,6 @@ const useProducts = () => {
         const end = start + 20
         setProducts(allProducts.slice(start, end))
     }, [currentPage])
-
 
     const setPage = ({ target }) => setCurrentPage(target.value)
 

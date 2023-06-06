@@ -12,8 +12,30 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
-const pages = ['Landing', 'Shopping Cart', 'Product', 'Contact'];
+const NAV_LINKS = [
+    {
+        label: 'Inicio',
+        url: '/'
+    },
+    {
+        label: 'Carrito',
+        url: '/shopping-cart'
+    }, {
+        label: 'Producto',
+        url: '/product'
+    },
+    {
+        label: 'Contacto',
+        url: '/contact'
+    },
+    {
+        label: 'Pagar',
+        url: '/checkout'
+    }
+]
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
@@ -87,9 +109,11 @@ function NavBar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
+                            {NAV_LINKS.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Link to={page.url}>
+                                        <Typography textAlign="center">{page.label}</Typography>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -114,13 +138,15 @@ function NavBar() {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
+                        {NAV_LINKS.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                <Link to={page.url} >
+                                    {page.label}
+                                </Link>
                             </Button>
                         ))}
                     </Box>
