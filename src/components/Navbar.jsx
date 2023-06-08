@@ -48,7 +48,7 @@ function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-    const { count } = useContext(ShoppingCartContext)
+    const context = useContext(ShoppingCartContext)
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -155,11 +155,8 @@ function NavBar() {
                         ))}
                     </Box>
                     <IconButton variant="plain">
-                        <ShoppingCartIcon />{count}
+                        <ShoppingCartIcon />{context.cartProducts.length}
                     </IconButton>
-                    {/* <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-                        <Button ><ShoppingBagIcon /> Add to cart</Button>
-                    </Box> */}
                 </Toolbar>
             </Container>
         </AppBar>

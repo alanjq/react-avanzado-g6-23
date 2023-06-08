@@ -9,8 +9,6 @@ export const ShoppingCartContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const ShoppingCartProvider = ({ children }) => {
-  // Shopping cart: Increment quantity and
-  const [count, setCount] = useState(0);
 
   // Usamos getCartFromLocalStorage para obtener los productos almacenados
   const [cartProducts, setCartProducts] = useState(getCartFromLocalStorage());
