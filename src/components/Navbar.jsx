@@ -1,3 +1,5 @@
+import { useContext } from "react";
+
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,8 +14,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
 
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+import { ShoppingCartContext } from "../Context";
+
+const pages = ['Landing', 'Shopping Cart', 'Product', 'Contact'];
 const NAV_LINKS = [
     {
         label: 'Inicio',
@@ -22,7 +28,7 @@ const NAV_LINKS = [
     {
         label: 'Carrito',
         url: '/shopping-cart'
-    }, {
+    },{
         label: 'Producto',
         url: '/product'
     },
@@ -41,6 +47,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const { count } = useContext(ShoppingCartContext)
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -109,11 +117,9 @@ function NavBar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {NAV_LINKS.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Link to={page.url}>
-                                        <Typography textAlign="center">{page.label}</Typography>
-                                    </Link>
+                            {NAV_LINKS.map((page, index) => (
+                                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">{page.label}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -138,48 +144,22 @@ function NavBar() {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {NAV_LINKS.map((page) => (
+                        {NAV_LINKS.map((page, index) => (
                             <Button
-                                key={page}
+                                key={index}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                <Link to={page.url} >
-                                    {page.label}
-                                </Link>
+                                {page.label}
                             </Button>
                         ))}
                     </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
+                    <IconButton variant="plain">
+                        <ShoppingCartIcon />{count}
+                    </IconButton>
+                    {/* <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                        <Button ><ShoppingBagIcon /> Add to cart</Button>
+                    </Box> */}
                 </Toolbar>
             </Container>
         </AppBar>
