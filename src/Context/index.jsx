@@ -11,15 +11,18 @@ export const ShoppingCartContext = createContext();
 export const ShoppingCartProvider = ({ children }) => {
   // Shopping cart: Increment quantity and
   const [count, setCount] = useState(0);
+
+  // Usamos getCartFromLocalStorage para obtener los productos almacenados
   const [cartProducts, setCartProducts] = useState(getCartFromLocalStorage());
 
 
+  // Acciones para cuando el valor de cartProducts cambie
   useEffect(() => {
-    // Guardar a LocalStorage cada vez que cambien lo objetos del carrito
+    // Guardar a LocalStorage los objetos actuales en el carrito
     setCartToLocalStorage(cartProducts)
   }, [cartProducts])
   // Product List
-  
+
 
   const { products, isLoading, setPage } = useProducts()
 
