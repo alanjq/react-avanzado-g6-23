@@ -15,11 +15,12 @@ import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client
 export const SiteRouter = () => {
 
     // Creamos cliente de conexión de ApolloClient
+    console.log(import.meta.env)
     const client = new ApolloClient({
         uri: 'https://graphql.datocms.com/',
         cache: new InMemoryCache(),
         headers: {
-            authorization: `bearer ${process?.env?.REACT_TOKEN}`
+            authorization: `bearer ${import.meta.env.VITE_CMS_API}`
         }
     });
 
