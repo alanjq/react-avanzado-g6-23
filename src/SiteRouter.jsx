@@ -19,7 +19,7 @@ export const SiteRouter = () => {
         uri: 'https://graphql.datocms.com/',
         cache: new InMemoryCache(),
         headers: {
-            authorization: `bearer d8d538fe63075187aba3e8760d6900`
+            authorization: `bearer ${process.env.REACT_TOKEN}`
         }
     });
 
