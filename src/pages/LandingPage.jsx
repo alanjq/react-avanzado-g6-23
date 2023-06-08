@@ -1,11 +1,13 @@
+import { useContext } from 'react';
+
 import LinearProgress from '@mui/joy/LinearProgress';
-import React from "react";
 import ProductList from "../components/ProductList";
-import useProducts from "../hooks/useProducts";
+import {ShoppingCartContext} from '../Context'
+// import useProducts from "../hooks/useProducts";
 
 
 export const LandingPage = () => {
-    const { products, isLoading, setPage } = useProducts()
+    const { isLoading, setPage } = useContext(ShoppingCartContext)
 
     return (<div>
         <div className='w-1/4 px-4 py-2'>
@@ -23,7 +25,7 @@ export const LandingPage = () => {
                 />
             </div>
         </div>
-        {isLoading ? <LinearProgress /> : <ProductList products={products} />}
+        {isLoading ? <LinearProgress /> : <ProductList />}
     </div>)
 }
 

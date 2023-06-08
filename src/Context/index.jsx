@@ -1,6 +1,8 @@
 
 import { createContext, useState } from 'react'
 
+import useProducts from "../hooks/useProducts";
+
 
 export const ShoppingCartContext = createContext();
 
@@ -10,13 +12,18 @@ export const ShoppingCartProvider = ({children}) => {
   const [count, setCount] = useState(0);
   const [cartProducts, setCartProducts] = useState([]);
   
-  //Open Close Product
-  const [isProductDetailOpen, setIsProductOpen] = useState(false);
-  const openProductDetail = () => setIsProductOpen(true)
-  const closeProductDetail = () => setIsProductOpen(false)
 
-  //Product Detail Show Product
-  const [productToShow, setProductToShow] = useState({});
+// Product List
+
+const { products, isLoading, setPage } = useProducts()
+
+  // //Open Close Product
+  // const [isProductDetailOpen, setIsProductOpen] = useState(false);
+  // const openProductDetail = () => setIsProductOpen(true)
+  // const closeProductDetail = () => setIsProductOpen(false)
+
+  // //Product Detail Show Product
+  // const [productToShow, setProductToShow] = useState({});
 
 
   
@@ -24,13 +31,11 @@ export const ShoppingCartProvider = ({children}) => {
     <ShoppingCartContext.Provider value={{
       count,
       setCount,
-      openProductDetail,
-      closeProductDetail,
-      isProductDetailOpen,
-      productToShow,
-      setProductToShow,
       cartProducts, 
-      setCartProducts
+      setCartProducts,
+      products, 
+      isLoading, 
+      setPage,
     }}>
       {children}
     </ShoppingCartContext.Provider>
