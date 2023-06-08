@@ -24,20 +24,9 @@ export const ShoppingCartProvider = ({ children }) => {
 
   const { products, isLoading, setPage } = useProducts()
 
-  // //Open Close Product
-  // const [isProductDetailOpen, setIsProductOpen] = useState(false);
-  // const openProductDetail = () => setIsProductOpen(true)
-  // const closeProductDetail = () => setIsProductOpen(false)
-
-  // //Product Detail Show Product
-  // const [productToShow, setProductToShow] = useState({});
-
-
 
   return (
     <ShoppingCartContext.Provider value={{
-      count,
-      setCount,
       cartProducts,
       setCartProducts,
       products,
