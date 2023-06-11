@@ -6,6 +6,7 @@ import CartPage from './pages/CartPage'
 import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
 import CheckoutPage from './pages/CheckoutPage'
+import AboutPage from './pages/AboutPage'
 import SiteLayout from "./SiteLayout";
 import { ShoppingCartProvider } from "./Context";
 // Importar ApolloClient para las peticiones de GraphQL
@@ -44,6 +45,23 @@ export const SiteRouter = () => {
             </ShoppingCartProvider>
         </ApolloProvider>
     )
+    return(   
+        <ShoppingCartProvider >
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<SiteLayout />}>
+                        <Route index element={<LandingPage />} />
+                        <Route path="shopping-cart" element={<CartPage />} />
+                        {/* TODO: Definir variable para producto */}
+                        <Route path="product" element={<ProductPage />} />
+                        <Route path="contact" element={<ContactPage />} />
+                        <Route path="about" element={<AboutPage />} />
+                        <Route path="checkout" element={<CheckoutPage />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </ShoppingCartProvider>
+    ) 
 }
 
 export default SiteRouter
