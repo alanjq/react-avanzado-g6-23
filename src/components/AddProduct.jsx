@@ -11,7 +11,6 @@ const AddProduct = ({item}) => {
   const handleAdd = () => {
     let lista = cartProducts;
     setCartProducts([...lista, item])
-    setCount(count + 1)
   }
 
   return (

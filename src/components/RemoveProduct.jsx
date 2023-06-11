@@ -11,7 +11,6 @@ const RemoveProduct = ({item}) => {
   const handleRemove = () => {
     const filteredProducts = context.cartProducts.filter(product => product.id!= item.id)
     context.setCartProducts(filteredProducts)
-    context.setCount(context.count - 1)
   }
 
 

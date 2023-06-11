@@ -21,7 +21,7 @@ export const setCartToLocalStorage = (cartItems) => {
  *  */
 export const getCartFromLocalStorage = () => {
     // Usamos JSON.parse para convertir el valor de "cart" (almacenado en localStorage) a un objeto JSON válido
-    const value = localStorage.getItem("cart")
+    const value = JSON.parse(localStorage.getItem("cart"))
 
     // Verificamos que tengamos un Array válido guardado previamente
     if(Array.isArray(value)){

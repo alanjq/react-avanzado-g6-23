@@ -1,11 +1,16 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b04d96d5-01af-4499-91bf-bf12e5a9f90b/deploy-status)](https://app.netlify.com/sites/proyecto-web-6/deploys)
+
 # Tienda
+
+URL REPO
+
+https://proyecto-web-6.netlify.app
 
 ## Interfaz de usuario
 [Material UI](https://mui.com/material-ui/react-button/)
 
 ## API productos
 [API productos](https://fakeapi.platzi.com)
-
 
 Puntos necesarios
 - Ruteo con react-router-dom
