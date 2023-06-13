@@ -1,8 +1,4 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import { Link } from 'react-router-dom';
-import AboutPage from '../pages/AboutPage'
-import ContactPage from '../pages/ContactPage'
 import NavigationFooter from '../components/NavigationFooter'
 
 export const Footer = () => {

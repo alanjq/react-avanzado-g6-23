@@ -38,6 +38,7 @@ export const SiteRouter = () => {
                             {/* TODO: Definir variable para producto */}
                             <Route path="product" element={<ProductPage />} />
                             <Route path="contact" element={<ContactPage />} />
+                            <Route path="about" element={<AboutPage />} />
                             <Route path="checkout" element={<CheckoutPage />} />
                         </Route>
                     </Routes>
